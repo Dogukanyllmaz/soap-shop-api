@@ -17,7 +17,7 @@ namespace Core.DependencyInjection
         {
             //Add generic database context
             services.AddDbContext<TContext>(options => options.UseSqlServer(
-                configuration.GetConnectionString("soapShopConnection"), sqlserverOption =>
+                configuration.GetConnectionString("SoapShopConnection"), sqlserverOption =>
                 sqlserverOption.EnableRetryOnFailure()));
 
             //Add Serilog Logging
@@ -41,7 +41,7 @@ namespace Core.DependencyInjection
             //use globalexception
             app.UseMiddleware<GlobalException>();
             //register middleware to block all outsiders API calls
-            app.UseMiddleware<ListenToOnlyApiGateway>();
+            //app.UseMiddleware<ListenToOnlyApiGateway>();
             return app;
         }
 

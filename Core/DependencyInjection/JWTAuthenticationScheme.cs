@@ -14,7 +14,7 @@ namespace Core.DependencyInjection
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                 .AddJwtBearer("Bearer", options =>
                 {
-                    var key = Encoding.UTF8.GetBytes(configuration.GetSection("Authenticaion:Key").Value!);
+                    var key = Encoding.UTF8.GetBytes(configuration.GetSection("Authentication:Key").Value!);
                     string issuer = configuration.GetSection("Authenticaion:Issuer").Value!;
                     string audience = configuration.GetSection("Authenticaion:Audience").Value!;
                     options.RequireHttpsMetadata = false;
